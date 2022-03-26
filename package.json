@@ -22,5 +22,8 @@
   "homepage": "https://github.com/xemyleigh/frontend-project-lvl2#readme",
   "dependencies": {
     "commander": "^9.1.0"
+  },
+  "devDependencies": {
+    "eslint": "^8.12.0"
   }
 }

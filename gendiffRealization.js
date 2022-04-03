@@ -10,24 +10,24 @@ const genDiff = (path1, path2) => {
   const union = _.sortBy(_.union(Object.keys(file1), Object.keys(file2)));
   union.forEach((i) => {
     if (!_.has(file1, i) && _.has(file2, i)) {
-      result += `\n   + ${i}: ${file2[i]}`;
+      result += `\n  + ${i}: ${file2[i]}`;
     }
 
     if (!_.has(file2, i) && _.has(file1, i)) {
-      result += `\n   - ${i}: ${file1[i]}`;
+      result += `\n  - ${i}: ${file1[i]}`;
     }
 
     if (_.has(file1, i) && _.has(file2, i) && file1[i] !== file2[i]) {
-      result += `\n   - ${i}: ${file1[i]}`;
-      result += `\n   + ${i}: ${file2[i]}`;
+      result += `\n  - ${i}: ${file1[i]}`;
+      result += `\n  + ${i}: ${file2[i]}`;
     }
 
     if (_.has(file1, i) && _.has(file2, i) && file1[i] === file2[i]) {
-      result += `\n     ${i}: ${file1[i]}`;
+      result += `\n    ${i}: ${file1[i]}`;
     }
   });
   console.log(`{${result}\n}`);
-  return result;
+  return `{${result}\n}`;
 };
 
 export default genDiff;

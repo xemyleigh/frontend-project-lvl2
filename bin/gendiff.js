@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 import { Command } from 'commander';
-import gendiffRealization from '../gendiffRealization.js';
+import gendiffRealization from '../src/gendiffRealization.js';
 
 const program = new Command();
 

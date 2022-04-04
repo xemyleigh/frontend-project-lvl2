@@ -1,11 +1,21 @@
 import { readFileSync } from 'fs';
-import { resolve } from 'path';
+import { resolve, extname } from 'path';
 import _ from 'lodash';
+import parsers from './parsers.js';
+
+const getParsedData = (path) => {
+  const fileExtension = extname(path);
+  const getData = readFileSync(resolve(path), 'utf-8');
+
+  return parsers[fileExtension](getData);
+};
 
 const genDiff = (path1, path2) => {
+  const file1 = getParsedData(path1);
+  const file2 = getParsedData(path2);
+
+  console.log(file1);
   let result = '';
-  const file1 = JSON.parse(readFileSync(resolve(path1), 'utf-8'));
-  const file2 = JSON.parse(readFileSync(resolve(path2), 'utf-8'));
 
   const union = _.sortBy(_.union(Object.keys(file1), Object.keys(file2)));
   union.forEach((i) => {

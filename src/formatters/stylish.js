@@ -2,7 +2,7 @@ import _ from 'lodash';
 
 const indent = (depth, spacesCount = 4) => ' '.repeat(depth * spacesCount - 2);
 
-const stringify = (data, depth, formatter) => {
+const stringify = (data, depth, stylish) => {
   if (!_.isObject(data)) {
     return String(data);
   }
@@ -14,17 +14,13 @@ const stringify = (data, depth, formatter) => {
 };
 
 const stylish = (node, depth = 0) => {
-
-  console.log(node.key)
-
-
   switch (node.type) {
     case 'root': {
-      const output = node.children.flatMap((node) => stylish(node, depth + 1));
+      const output = node.children.flatMap((child) => stylish(child, depth + 1));
       return `{\n${output.join('\n')}\n}`;
     }
     case 'nested': {
-      const output = node.children.flatMap((node) => stylish(node, depth + 1));
+      const output = node.children.flatMap((child) => stylish(child, depth + 1));
       return `${indent(depth)}  ${node.key}: {\n${output.join('\n')}\n${indent(depth)}  }`;
     }
     case 'added':

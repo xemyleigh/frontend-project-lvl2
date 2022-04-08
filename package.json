@@ -3,9 +3,9 @@
   "version": "1.0.0",
   "type": "module",
   "description": "[![Actions Status](https://github.com/xemyleigh/frontend-project-lvl2/workflows/hexlet-check/badge.svg)](https://github.com/xemyleigh/frontend-project-lvl2/actions)",
-  "main": "gendiffRealization.js",
+  "main": "gendiff.js",
   "bin": {
-    "gendiff": "src/gendiff.js"
+    "gendiff": "bin/gendiff.js"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"

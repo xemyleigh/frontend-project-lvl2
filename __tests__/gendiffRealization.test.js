@@ -22,7 +22,7 @@ test('gediff recurtion plain test', () => {
   expect(result).toEqual(expected);
 });
 
-test('gediff recurtion json test', () => {
+test('gediff recurtion json-format test', () => {
   const expected = readFileSync(getFixturePath('jsonResult'), 'utf-8');
 
   const result = genDiff(getFixturePath('recurtion1.json'), getFixturePath('recurtion2.json'), 'json');
